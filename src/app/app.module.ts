@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
@@ -17,11 +18,12 @@ import { RemoveElementDirective } from './directive/structural/remove-element.di
     PipeDirectiveComponent,
     CardMaskPipe,
     ChangeTextcolorDirective,
-    RemoveElementDirective
+    RemoveElementDirective,
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,182 @@
-<p>
-  form works!
-</p>
+<form [formGroup]="userForm" novalidate>
+  <div class="form-group">
+    <label for="userid">User Id</label>
+    <input [ngClass]="{errmsg: userid.invalid}" type="text" class="form-control" formControlName="userid" placeholder="">
+
+
+
+    <div *ngIf="userid.invalid && (userid.dirty || userid.touched)" class="text-danger">
+
+      <div *ngIf="userid.errors.required">
+        User ID is required !
+      </div>
+      
+    </div>
+   
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input [ngClass]="{errmsg: name.invalid}" type="text" class="form-control" formControlName="name" placeholder="">
+   <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+
+      <div *ngIf="name.errors.required">
+        Name is required !
+      </div>
+      
+    </div>
+   
+
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input [ngClass]="{errmsg: username.invalid}" type="text" class="form-control" formControlName="username" placeholder="">
+    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+
+      <div *ngIf="username.errors.required">
+       Username is required !
+      </div>
+      
+    </div>
+   
+  </div>
+  <div class="form-group">
+    <label for="emailid">Email</label>
+    <input [ngClass]="{errmsg: emailid.invalid}" type="email" class="form-control" formControlName="emailid" placeholder="">
+    <div *ngIf="emailid.invalid && (emailid.dirty || emailid.touched)" class="text-danger">
+
+      <div *ngIf="emailid.errors.required">
+        Email is required !
+      </div>
+      <div *ngIf="emailid.errors.email">
+        Email is not valid!
+      </div>
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input [ngClass]="{errmsg: phone.invalid}" type="tel" class="form-control" formControlName="phone" placeholder="">
+    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger">
+
+      <div *ngIf="phone.errors.required">
+        Phone is required !
+      </div>
+      
+    </div>
+   
+  </div>
+
+  <div class="form-group">
+    <label for="website">Website</label>
+    <input  type="text" class="form-control" formControlName="website" placeholder="">
+
+  </div>
+  <div formGroupName="address">
+    <h5>Address</h5>
+    <hr>
+    <div class="form-group">
+      <label for="street">Street</label>
+      <input [ngClass]="{errmsg: street.invalid}" type="text" class="form-control" formControlName="street" placeholder="">
+     <div *ngIf="street.invalid && (street.dirty || street.touched)" class="text-danger">
+
+      <div *ngIf="street.errors.required">
+        Street is required !
+      </div>
+      
+    </div>
+   
+    </div>
+
+    <div class="form-group">
+      <label for="suite">Suite</label>
+      <input [ngClass]="{errmsg: suite.invalid}" type="text" class="form-control" formControlName="suite" placeholder="">
+      <div *ngIf="suite.invalid && (suite.dirty || suite.touched)" class="text-danger">
+
+      <div *ngIf="suite.errors.required">
+        Suite is required !
+      </div>
+      
+    </div>
+   
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input [ngClass]="{errmsg: city.invalid}" type="text" class="form-control" formControlName="city" placeholder="">
+     <div *ngIf="city.invalid && (city.dirty || city.touched)" class="text-danger">
+
+      <div *ngIf="city.errors.required">
+        City is required !
+      </div>
+      
+    </div>
+   
+    </div>
+
+    <div class="form-group">
+      <label for="zipcode">Zipcode</label>
+      <input [ngClass]="{errmsg: zipcode.invalid}"  type="text" class="form-control" formControlName="zipcode" placeholder="">
+      <div *ngIf="zipcode.invalid && (zipcode.dirty || userid.touched)" class="text-danger">
+
+      <div *ngIf="zipcode.errors.required">
+        Zipcode is required !
+      </div>
+      
+    </div>
+   
+    </div>
+  </div>
+
+
+  <div formGroupName="company">
+    <h5>Company</h5>
+    <hr>
+
+    <div class="form-group">
+      <label for="company_name">Name</label>
+      <input [ngClass]="{errmsg: company_name.invalid}" type="text" class="form-control" formControlName="company_name" placeholder="">
+      <div *ngIf="company_name.invalid && (company_name.dirty || company_name.touched)" class="text-danger">
+
+      <div *ngIf="company_name.errors.required">
+        Company Name is required !
+      </div>
+      
+    </div>
+   
+    </div>
+
+    <div class="form-group">
+      <label for="company_catch_pharse">Catch Phrase</label>
+      <input [ngClass]="{errmsg: company_catch_pharse.invalid}" type="text" class="form-control" formControlName="company_catch_pharse" placeholder="">
+      <div *ngIf="company_catch_pharse.invalid && (company_catch_pharse.dirty || company_catch_pharse.touched)" class="text-danger">
+
+      <div *ngIf="company_catch_pharse.errors.required">
+        Catch Phrase is required !
+      </div>
+      
+    </div>
+   
+    </div>
+
+    <div class="form-group">
+      <label for="company_bs">BS</label>
+      <input [ngClass]="{errmsg: company_bs.invalid}" type="text" class="form-control" formControlName="company_bs" placeholder="">
+      <div *ngIf="company_bs.invalid && (company_bs.dirty || company_bs.touched)" class="text-danger">
+
+      <div *ngIf="company_bs.errors.required">
+        BS  is required !
+      </div>
+      
+    </div>
+   
+    </div>
+
+  </div>
+
+  <button type="submit" class="btn btn-success" (click)="editFrom()" *ngIf="!editable_mode">Edit</button>
+  <div *ngIf="editable_mode">
+    <button type="submit" class="btn btn-success" (click)="updateForm(userForm.value)" [disabled]="userForm.invalid">Update</button>
+    <button type="submit" class="btn btn-danger" (click)="cancelForm()">Cancel</button>
+    <button type="submit" class="btn btn-primary" (click)="clearForm()">Clear</button>
+  </div>
+</form>
