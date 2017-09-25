@@ -1,0 +1,16 @@
+
+ <div class="col-md-6 offset-md-6">
+  <h2>pipe : mask credit card</h2>
+  <p>Unmasked credit card number : {{creditCardNumber}}</p>
+
+  <p>Masked credit card number with pipe : {{creditCardNumber|cardMask:5}}</p>
+
+
+  <h2>attribute directive :cycle color</h2>
+  <p appChangeTextcolor [txtcolors]="['yellow', 'red', 'green', 'blue', 'black']">The color of this text will cycle through colors after given intervals (1 Sec )</p>
+
+  <h2>structural-directive : remove element after</h2>
+  <p *appRemoveElement="5000">The element will be removed from DOM after 5 Seconds</p>
+ </div>
+
+
